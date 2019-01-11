@@ -73,12 +73,13 @@ public class matrixDet {
 	}
 	
 	public static int det(int[][] mat) {
-		int mult = 1;
 		int out = 0;
 		
 		if(mat[0].length==2) {
 			return (mat[0][0]*mat[1][1]) - (mat[0][1]*mat[1][0]);
 		}
+		
+		int mult = 2*(mat[0].length % 2)-1; //coefficient for bottum row calc
 		
 		for(int x = 0;x < mat[0].length; x++) {			
 			out += mult * mat[x][mat[0].length-1] * det(newMat(mat,x));
